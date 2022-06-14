@@ -19,9 +19,9 @@ function ItemCount(props) {
     return(
         <div>
             <div className="d-flex">
+                <button type="button" className="btn btn-primary" onClick={sumar}>-</button>
                 <p>{initial}</p>
-                <button type="button" className="btn btn-primary" onClick={sumar}>+</button>
-                <button type="button" className="btn btn-primary" onClick={restar}>-</button>
+                <button type="button" className="btn btn-primary" onClick={restar}>+</button>
             </div>
             <button type="button" className="btn btn-primary">Agregar al carro</button>
         </div>
