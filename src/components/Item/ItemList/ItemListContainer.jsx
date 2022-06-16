@@ -26,7 +26,7 @@ function ItemListContainer() {
     } else {
         return(
             <>
-                <p>Cargando...</p>
+                <p>Cargando items...</p>
             </>
         );
     }

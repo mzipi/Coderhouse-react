@@ -5,12 +5,12 @@ function ItemList({ items }) {
         items.map(item => 
             <div className="col-3">
                 <Item 
-                key={item.id}
-                name={item.name}
-                url={item.url}
-                description={item.description}
-                price={item.price}
-            />
+                    key={item.id}
+                    name={item.name}
+                    url={item.url}
+                    description={item.description}
+                    price={item.price}
+                />
             </div>
         )
     );
