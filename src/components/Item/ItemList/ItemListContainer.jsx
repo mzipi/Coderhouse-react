@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import catalogo from "../data/catalogo.js";
+import catalogo from "../../../data/catalogo";
 
 function ItemListContainer() {
 

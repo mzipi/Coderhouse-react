@@ -1,5 +1,5 @@
-import ItemListContainer from "./ItemListContainer";
-import ItemDetailContainer from "./ItemDetailContainer";
+import ItemListContainer from "./Item/ItemList/ItemListContainer";
+import ItemDetailContainer from "./Item/ItemDetail/ItemDetailContainer";
 import NavBar from "./NavBar";
 
 function App() {
