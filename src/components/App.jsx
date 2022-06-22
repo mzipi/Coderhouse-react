@@ -1,15 +1,15 @@
-import ItemListContainer from "./Item/ItemList/ItemListContainer";
-import ItemDetailContainer from "./Item/ItemDetail/ItemDetailContainer";
 import NavBar from "./NavBar";
 import { BrowserRouter } from "react-router-dom";
+import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
     return(
         <>
             <BrowserRouter>
                 <NavBar />
-                <ItemListContainer />
-                <ItemDetailContainer />
+                <Main />
+                <Footer />
             </BrowserRouter>
         </>
     )
