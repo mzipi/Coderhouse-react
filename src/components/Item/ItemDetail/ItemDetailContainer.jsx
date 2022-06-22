@@ -10,7 +10,7 @@ function ItemDetailContainer() {
         const detailPromise = new Promise((res)=>{
             setTimeout(()=>{
                 res(producto);
-            },4000);
+            },2000);
         })
         detailPromise.then(i => setItem(i))
     },[item]);
@@ -19,7 +19,7 @@ function ItemDetailContainer() {
         return(
             <div className="container mt-4">
                 <div className="row g-2">
-                    <ItemDetail item={item[2]}/>
+                    <ItemDetail item={item[1]} />
                 </div>
             </div>
         );

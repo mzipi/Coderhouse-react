@@ -1,13 +1,12 @@
 import ItemCount from "../ItemCount";
 import { Link } from "react-router-dom";
 
-function Item({id, name, url, description, price}) {
+function Item({id, name, image, price}) {
     return(
-        <Link to={`/item/${name}`} key={id}>
+        <Link to={`/item/${id}`}>
             <div className="p-3 border bg-light">
-            <img src={url} alt={name} />
+            <img src={image} alt={name} />
             <h3>{name}</h3>
-            <p>{description}</p>
             <p>${price}</p>
             <ItemCount />
             </div>

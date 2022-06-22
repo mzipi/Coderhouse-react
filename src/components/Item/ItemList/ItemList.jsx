@@ -1,13 +1,15 @@
 import Item from "./Item";
 
 function ItemList({ items }) {
+
     return(
         items.map(item => 
             <div className="col-3">
+                <p>{item.id}</p>
                 <Item 
-                    key={item.id}
+                    id={item.id}
                     name={item.name}
-                    url={item.url}
+                    image={item.image}
                     description={item.description}
                     price={item.price}
                 />

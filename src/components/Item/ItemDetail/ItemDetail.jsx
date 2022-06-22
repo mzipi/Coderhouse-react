@@ -1,13 +1,13 @@
-function ItemDetail(props) {
+function ItemDetail({ item }) {
 
     return(
         <>
-        <h1>Detalles del producto</h1>
-            <div className="p-3 border bg-light col-3" key={props.item.id}>
-                <img src={props.item.url} alt={props.item.name} />
-                <h3>{props.item.name}</h3>
-                <p>{props.item.description}</p>
-                <p>${props.item.price}</p>
+            <h1>Detalles del producto</h1>
+            <div className="p-3 border bg-light col-3" key={item.id}>
+                <img src={item.image} alt={item.name} />
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p>${item.price}</p>
             </div>
         </>
     );
