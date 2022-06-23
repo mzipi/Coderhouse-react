@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import producto from "../../../data/catalogo.js";
+import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
 
     const [item, setItem] = useState({});
+    const { id } = useParams();
 
     useEffect(()=>{
         const detailPromise = new Promise((res)=>{
             setTimeout(()=>{
                 res(producto);
-            },2000);
+            },100);
         })
         detailPromise.then(i => setItem(i))
     },[item]);
@@ -19,7 +21,7 @@ function ItemDetailContainer() {
         return(
             <div className="container mt-4">
                 <div className="row g-2">
-                    <ItemDetail item={item[1]} />
+                    <ItemDetail item={item[id-1]} />
                 </div>
             </div>
         );

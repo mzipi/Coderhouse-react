@@ -9,9 +9,9 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link to="/" className="nav-link active" aria-current="page">Inicio</Link>
-            <Link to="/catalogo" className="nav-link">Catalogo</Link>
-            <Link to="/deseados" className="nav-link">Deseados</Link>
-            <Link to="/contacto" className="nav-link">Contacto</Link>
+            <Link to="/category/action" className="nav-link">Acción</Link>
+            <Link to="/category/adventure" className="nav-link">Aventuras</Link>
+            <Link to="/category/fps" className="nav-link">FPS</Link>
           </div>
         </div>
         <CartWidget />

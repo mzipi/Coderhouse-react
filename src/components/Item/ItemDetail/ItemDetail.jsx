@@ -1,4 +1,11 @@
-function ItemDetail({ item }) {
+import ItemCount from "../../Item/ItemCount";
+import { Link } from "react-router-dom";
+
+function ItemDetail({item}) {
+
+    function onAdd(counter) {
+        console.log(counter);
+    }
 
     return(
         <>
@@ -8,6 +15,8 @@ function ItemDetail({ item }) {
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <p>${item.price}</p>
+                <ItemCount onAdd={onAdd} initial={1} stock={5}></ItemCount>
+                <Link to={"/cart"}>Terminar</Link>
             </div>
         </>
     );
