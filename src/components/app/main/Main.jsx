@@ -1,7 +1,7 @@
-import ItemListContainer from "./Item/ItemList/ItemListContainer";
-import ItemDetailContainer from "./Item/ItemDetail/ItemDetailContainer";
+import ItemListContainer from "../../items/ItemList/ItemListContainer";
+import ItemDetailContainer from "../../items/ItemDetail/ItemDetailContainer";
 import { Route, Routes } from "react-router-dom";
-import Cart from "./Cart";
+import Cart from "../../Cart";
 
 function Main() {
     return(

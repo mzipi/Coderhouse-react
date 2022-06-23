@@ -1,7 +1,7 @@
-import NavBar from "./NavBar";
 import { BrowserRouter } from "react-router-dom";
-import Main from "./Main";
-import Footer from "./Footer";
+import NavBar from "./main/NavBar";
+import Main from "./main/Main";
+import Footer from "./main/Footer";
 
 function App() {
     return(

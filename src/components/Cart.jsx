@@ -1,6 +1,4 @@
 function Cart() {
-    return(
-        <h1>Carrito</h1>
-    )
+    console.log("Proximamente...")
 }
 export default Cart;

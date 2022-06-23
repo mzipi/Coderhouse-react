@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import catalogo from "../../../data/catalogo";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
 
     const [items, setItems] = useState([]);
+    const { id } = useParams();
 
     useEffect(()=>{
         const promesa = new Promise((resolve)=>{
@@ -14,6 +16,7 @@ function ItemListContainer() {
         })
         promesa.then(r => setItems(r))
     },[items]);
+
 
     if(items.length > 0){
         return(
