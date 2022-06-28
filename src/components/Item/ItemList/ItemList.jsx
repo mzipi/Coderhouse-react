@@ -5,7 +5,6 @@ function ItemList({ items }) {
     return(
         items.map(item => 
             <div className="col-3">
-                <p>{item.id}</p>
                 <Item 
                     id={item.id}
                     name={item.name}

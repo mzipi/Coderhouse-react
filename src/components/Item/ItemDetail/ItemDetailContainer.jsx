@@ -10,7 +10,7 @@ function ItemDetailContainer() {
         const detailPromise = new Promise((res)=>{
             setTimeout(()=>{
                 res(producto);
-            },2000);
+            },0);
         })
         detailPromise.then(i => setItem(i))
     },[item]);

@@ -10,7 +10,7 @@ function ItemListContainer() {
         const promesa = new Promise((resolve)=>{
             setTimeout(()=>{
                 resolve(catalogo);
-            },2000);
+            },0);
         })
         promesa.then(r => setItems(r))
     },[items]);
