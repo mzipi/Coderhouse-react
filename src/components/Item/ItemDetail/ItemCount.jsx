@@ -23,7 +23,7 @@ function ItemCount(props) {
                 <p className="px-5">{initial}</p>
                 <button type="button" className="btn btn-primary" onClick={sumar}>+</button>
             </div>
-            <button type="button" className="btn btn-primary">Agregar al carro</button>
+            <button type="button" className="btn btn-primary m-3">Agregar al carro</button>
         </div>
     );
 };
