@@ -9,6 +9,7 @@ function Main() {
                 <Routes>
                     <Route path="/" element={<ItemListContainer />}></Route>
                     <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
+                    <Route path="/category/:category" element={<ItemListContainer />}></Route>
                 </Routes>
             </main>
         </>
