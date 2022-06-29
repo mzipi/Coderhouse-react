@@ -10,7 +10,7 @@ function ItemDetail({ id, name, price, description, image, genre }) {
                 <h3>{name}</h3>
                 <p>{description}</p>
                 <p>${price}</p>
-                <ItemCount />
+                <ItemCount initial={1} stock={5}/>
             </div>
         </>
     );
