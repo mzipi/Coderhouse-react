@@ -10,7 +10,7 @@ function ItemCount({ initial, stock, onAdd }) {
     };
 
     const restar = () => {
-        if(counter > 1) {
+        if(counter > 0) {
             setCounter(counter - 1);
         };
     };
@@ -21,12 +21,14 @@ function ItemCount({ initial, stock, onAdd }) {
 
     return(
         <div>
-            <div className="d-flex">
+            <div className="d-flex m-3">
                 <button type="button" className="btn btn-primary" onClick={restar}>-</button>
                 <p className="px-5">{counter}</p>
                 <button type="button" className="btn btn-primary" onClick={sumar}>+</button>
             </div>
-            <button type="button" className="btn btn-primary" onClick={finish}>Agregar al carro</button>
+            <div>
+                <button type="button" className="btn btn-primary d-block m-3" onClick={finish}>Agregar al carro</button>
+            </div>
         </div>
     );
 };
