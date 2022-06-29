@@ -1,35 +1,31 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import producto from "../../../data/catalogo.js";
+import { useParams } from 'react-router-dom';
+import { getGames } from '../../../data/customFetch';
 
 function ItemDetailContainer() {
 
-    const [item, setItem] = useState({});
+    const [item, setItem] = useState();
+    const { id } = useParams();
 
     useEffect(()=>{
-        const detailPromise = new Promise((res)=>{
-            setTimeout(()=>{
-                res(producto);
-            },0);
-        })
-        detailPromise.then(i => setItem(i))
-    },[item]);
+        getGames(parseInt(id))
+        .then(res => setItem(res))
+    },[]);
 
-    if(item.length > 0){
+    //if(item.length > 0){
         return(
             <div className="container mt-4">
                 <div className="row g-2">
-                    <ItemDetail item={item[1]} />
+                    <ItemDetail {...item} />
                 </div>
             </div>
         );
-    } else {
-        return(
-            <>
-                <p>Cargando detalles...</p>
-            </>
-        );
-    }
+    //} else {
+    //    return(
+    //        <p>Cargando detalles...</p>
+    //    );
+    //}
 };
 
 export default ItemDetailContainer;

@@ -1,6 +1,6 @@
 import ItemCount from "./ItemCount";
 
-function ItemDetail({ id, name, price, description, image, category }) {
+function ItemDetail({ id, name, price, description, image, genre }) {
 
     return(
         <>

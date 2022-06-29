@@ -4,8 +4,8 @@ function ItemList({ items }) {
 
     return(
         items.map(item => 
-            <div className="col-3">
-                <Item 
+            <div className="col-3" key={item.id}>
+                <Item
                     id={item.id}
                     name={item.name}
                     image={item.image}

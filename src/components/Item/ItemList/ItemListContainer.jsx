@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import catalogo from "../../../data/catalogo";
+import { customFetch, getCategories } from '../../../data/customFetch';
+import { useParams } from 'react-router-dom';
 
 function ItemListContainer() {
 
     const [items, setItems] = useState([]);
+    const { genre } = useParams();
 
     useEffect(()=>{
-        const promesa = new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(catalogo);
-            },0);
-        })
-        promesa.then(r => setItems(r))
+        if(!genre) {
+            customFetch()
+            .then(res => setItems(res))
+        } else {
+            getCategories(genre)
+            .then(res => setItems(res))
+        }
     },[items]);
 
     if(items.length > 0){
@@ -25,9 +28,7 @@ function ItemListContainer() {
         );
     } else {
         return(
-            <>
-                <p>Cargando elementos...</p>
-            </>
+            <p>Cargando elementos...</p>
         );
     }
 };
