@@ -9,11 +9,11 @@ function ItemListContainer() {
     const { genre } = useParams();
 
     useEffect(()=>{
-        if(!genre) {
-            customFetch()
+        if(genre) {
+            getCategories(genre)
             .then(res => setItems(res))
         } else {
-            getCategories(genre)
+            customFetch()
             .then(res => setItems(res))
         }
     },[items]);

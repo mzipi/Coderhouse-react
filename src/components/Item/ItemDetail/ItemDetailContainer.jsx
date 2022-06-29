@@ -13,7 +13,7 @@ function ItemDetailContainer() {
         .then(res => setItem(res))
     },[]);
 
-    //if(item.length > 0){
+    if(item){
         return(
             <div className="container mt-4">
                 <div className="row g-2">
@@ -21,11 +21,11 @@ function ItemDetailContainer() {
                 </div>
             </div>
         );
-    //} else {
-    //    return(
-    //        <p>Cargando detalles...</p>
-    //    );
-    //}
+    } else {
+        return(
+            <p>Cargando detalles...</p>
+        );
+    }
 };
 
 export default ItemDetailContainer;
