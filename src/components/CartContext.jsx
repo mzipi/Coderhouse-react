@@ -12,26 +12,21 @@ const MyProvider = ({ children }) => {
             const aux = cart.slice();
             aux.push(item);
             setCart(aux);
-        } 
-        if(isInCart(item.id)) {
+        } else {
             addQuantity(item.id)
         }
     }
 
     const isInCart = (id) => {
-        return cart.some((prod) => prod.id === id);
+        return cart.some((current) => current.id === id);
     }
 
     const totalPrice = () => {
-        return cart.reduce((acc, prod) => acc += (prod.precio * prod.cantidad), 0)
+        return cart.price.reduce((prev, current) => prev += (current.precio * current.cantidad), 0)
     }
 
     const totalQuantity = () => {
-        return cart.reduce((acc, prod) => acc += prod.cantidad, 0)
-    }
-
-    const delCart = () => {
-        setCart([])
+        return cart.reduce((prev, current) => prev += current.cantidad, 0)
     }
 
     const delQuantity = (id) => {
@@ -59,16 +54,15 @@ const MyProvider = ({ children }) => {
     }
 
     const delItem = (id) => {
-        setCart(cart.filter(product => (product.id !== Number(id))));
+        setCart(cart.filter(currentuct => (currentuct.id !== Number(id))));
     }
 
     const contexValue = {
         cart,
         addItem,
         isInCart,
-        totalPrice,
         totalQuantity,
-        delCart,
+        totalPrice,
         delQuantity,
         addQuantity,
         delItem

@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
 
-    const { cart } = useContext(context);
-
-    //const handleSubmit = (e) => {
-    //    e.prevetDefault();
-    //}
+    const { cart, totalPrice } = useContext(context);
 
     let total = 0;
 
@@ -33,11 +29,11 @@ function Cart() {
                         </thead>
                         {
                             cart.map(item => {
-                                total += item.price * item.quantity;
+                                total += item.price * item.cantidad;
                                 return(
                                     <tbody key={item.id}>
                                         <tr>
-                                            <th scope="row">{item.quantity}</th>
+                                            <th scope="row">{item.cantidad}</th>
                                             <td>{item.name}</td>
                                             <td>{item.price}</td>
                                         </tr>

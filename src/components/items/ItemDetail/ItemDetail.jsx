@@ -11,7 +11,7 @@ function ItemDetail({item}) {
     const onAdd = (counter) => {
         const itemToCart = {
             ...item,
-            quantity: counter
+            cantidad: counter
         }
         addItem(itemToCart);
     }
@@ -27,7 +27,7 @@ function ItemDetail({item}) {
                 <ItemCount 
                     onAdd={onAdd} 
                     initial={1} 
-                    stock={5} 
+                    stock={item.stock} 
                     setCantidad={setCounter}>
                 </ItemCount>
                 <Link to={"/cart"}>Ver carrito</Link>             

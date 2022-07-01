@@ -5,7 +5,8 @@ const catalogo = [
         image: "https://picsum.photos/200/200?image=1",
         description: "Descripción de Half life",
         price: 60,
-        genre: "Shooter"
+        genre: "Shooter",
+        stock: 10
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const catalogo = [
         image: "https://picsum.photos/200/200?image=2",
         description: "Descripción de Halo",
         price: 50,
-        genre: "Shooter"
+        genre: "Shooter",
+        stock: 10
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const catalogo = [
         image: "https://picsum.photos/200/200?image=3",
         description: "Descripción de Super Mario",
         price: 40,
-        genre: "Aventuras"
+        genre: "Aventuras",
+        stock: 10
     }
 ]
 export default catalogo;
