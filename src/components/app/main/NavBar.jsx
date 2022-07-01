@@ -1,7 +1,12 @@
 import CartWidget from '../../CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { context } from '../../CartContext';
 
 function NavBar() {
+
+  const { cart } = useContext(context);
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -14,7 +19,9 @@ function NavBar() {
             <Link to="/category/fps" className="nav-link">FPS</Link>
           </div>
         </div>
-        <CartWidget />
+        {
+          	cart.length > 0 ? <CartWidget /> : null
+        }
       </div>
     </nav>
   );

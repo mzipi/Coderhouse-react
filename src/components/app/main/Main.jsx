@@ -6,7 +6,7 @@ import Cart from "../../Cart";
 function Main() {
     return(
         <>
-            <main>
+            <main className="p-5">
                 <Routes>
                     <Route path="/" element={<ItemListContainer />}></Route>
                     <Route path="/item/:id" element={<ItemDetailContainer />}></Route>

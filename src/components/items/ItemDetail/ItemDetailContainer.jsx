@@ -27,9 +27,7 @@ function ItemDetailContainer() {
         );
     } else {
         return(
-            <>
-                <p>Cargando detalles...</p>
-            </>
+            <p>Cargando detalles...</p>
         );
     }
 };

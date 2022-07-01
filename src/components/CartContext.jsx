@@ -6,35 +6,72 @@ const Provider = context.Provider;
 
 const MyProvider = ({ children }) => {
     const [ cart, setCart ] = useState([]);
-    const [ totalCount, setTotalCount ] = useState(0);
-    const [ itemCount, setItemCount ] = useState(0);
-    const [ price, setPrice ] = useState(0);
 
-    const update  = (quantity, item) => {
-        if(cart.length > 0){
-            cart.map((x)=>{
-                if(x.id === item.id) {
-                    if(quantity > totalCount) {
-                        setTotalCount(quantity);
-                    }
-                } else {
-                    cart.push(item);
-                    console.log('algo')
-                    setItemCount(quantity);
-                }
-            })
-        } else {
-            setCart(item);
+    const addItem = (item) => {
+        if(!isInCart(item.id)) {
+            const aux = cart.slice();
+            aux.push(item);
+            setCart(aux);
+        } 
+        if(isInCart(item.id)) {
+            addQuantity(item.id)
         }
-        setTotalCount(quantity);
+    }
+
+    const isInCart = (id) => {
+        return cart.some((prod) => prod.id === id);
+    }
+
+    const totalPrice = () => {
+        return cart.reduce((acc, prod) => acc += (prod.precio * prod.cantidad), 0)
+    }
+
+    const totalQuantity = () => {
+        return cart.reduce((acc, prod) => acc += prod.cantidad, 0)
+    }
+
+    const delCart = () => {
+        setCart([])
+    }
+
+    const delQuantity = (id) => {
+        const index = cart.findIndex((item) => item.id === Number(id));
+        const item = cart[index];
+        if(item.cantidad === 1) {
+            delItem(id)
+        } else {
+            const newQuantity = item.cantidad - 1;
+            const aux = cart.slice();
+            aux[index].cantidad = newQuantity;
+            setCart(aux);
+        }
+    }
+
+    const addQuantity = (id) => {
+        const index = cart.findIndex((item) => item.id === Number(id));
+        const item = cart[index];
+        if(item.cantidad < item.stock) {
+            const newQuantity = item.cantidad + 1;
+            const aux = cart.slice();
+            aux[index].cantidad = newQuantity;
+            setCart(aux);
+        }
+    }
+
+    const delItem = (id) => {
+        setCart(cart.filter(product => (product.id !== Number(id))));
     }
 
     const contexValue = {
         cart,
-        totalCount,
-        itemCount,
-        price,
-        update
+        addItem,
+        isInCart,
+        totalPrice,
+        totalQuantity,
+        delCart,
+        delQuantity,
+        addQuantity,
+        delItem
     }
 
     return(
