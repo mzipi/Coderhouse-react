@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import catalogo from "../../../data/catalogo";
 import { useParams } from "react-router-dom";
 import { db } from "../../../firebase";
 import { getDocs, collection } from "firebase/firestore";
@@ -8,28 +7,25 @@ import { getDocs, collection } from "firebase/firestore";
 function ItemListContainer() {
 
     const [items, setItems] = useState([]);
-    const { id } = useParams();
+    const { category } = useParams();
 
     useEffect(()=>{
-        //const collectionItems = collection(db, "items");
-        //const consulta = getDocs(collectionItems);
-        //consulta.then(i => {
-        //    const mapProducts = i.docs.map(doc => {
-        //        const aux = doc.data();
-        //        aux.id = doc.id;
-        //        return aux;
-        //    })
-        //    setItems(mapProducts);
-        //});
-        //consulta.catch(e => console.log(e));
-        
-        const promesa = new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(catalogo);
-            },100);
-        })
-        promesa.then(r => setItems(r))
-    },[items]);
+        const collectionProductos = collection(db, "items");
+        const consulta = getDocs(collectionProductos);
+
+        consulta
+            .then((resultado) => {
+                const productos_mapeados = resultado.docs.map(referencia => {
+                    const aux = referencia.data();
+                    aux.id = referencia.id;
+                    return aux;
+                })
+                setItems(productos_mapeados);
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    },[category]);
 
 
     if(items.length > 0){
