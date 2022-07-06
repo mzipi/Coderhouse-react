@@ -36,7 +36,7 @@ function ItemDetailContainer() {
         return(
             <div className="container mt-4">
                 <div className="row g-2">
-                    <ItemDetail item={item/*[id]*/} />
+                    <ItemDetail item={item[id-1]} />
                 </div>
             </div>
         );
