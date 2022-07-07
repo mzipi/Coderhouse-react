@@ -11,28 +11,28 @@ function Cart() {
 
     let total = 0;
 
-    const handleBuy = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
         const collectionOrders = collection(db, 'orders');
 
         const orderData = {
             buyer: {
-                name: 'Juan',
-                phone: '123456789',
-                email: 'algo@mail.com'
+                name: e.target.elements.name.value,
+                phone: e.target.elements.tel.value,
+                email: e.target.elements.email.value
             },
-            items: {
-                id: 231,
-                name: 'Producto'
-            },
+            items: cart,
             date: serverTimestamp(),
-            total: 124
+            total: totalPrice
         }
-
+        
         const consulta = addDoc(collectionOrders, orderData);
+
         consulta
-            .then((res) => {setIdCompra(res.id)})
-            .catch((e) => {console.log(e)});
-    }
+            .then(res => setIdCompra(res.id))
+            .catch(e => console.log(e));
+    };
 
     if(cart["length"] === 0){
         return(
@@ -74,7 +74,18 @@ function Cart() {
                             </tr>
                         </tbody>
                     </table>
-                <Link to="/checkout" className="btn btn-primary" onClick={handleBuy}>Finalizar comprar</Link>
+                    <form onSubmit={handleSubmit}>
+                        <fieldset>
+                            <legend>Datos del comprador</legend>
+                            <label for="name">Nombre</label>
+                            <input id="name" name="name" type="text"></input>
+                            <label for="tel">Teléfono</label>
+                            <input type="tel"  id="tel" name="tel" pattern="[0-9]{9}"></input>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email"></input>
+                            <input type="submit" className="btn btn-primary" value="Finalizar compra"></input>
+                        </fieldset>
+                    </form>
             </div>
         )
     }

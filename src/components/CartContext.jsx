@@ -37,7 +37,7 @@ const MyProvider = ({ children }) => {
         return cart.some((current) => current.id === id);
     }
 
-    const totalPrice = () => {
+    const totalPrice = (cart) => {
         return cart.price.reduce((prev, current) => prev += (current.precio * current.cantidad), 0)
     }
 
