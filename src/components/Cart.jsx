@@ -24,7 +24,7 @@ function Cart() {
             },
             items: cart,
             date: serverTimestamp(),
-            total: totalPrice
+            total: 120 //totalPrice
         }
         
         const consulta = addDoc(collectionOrders, orderData);
