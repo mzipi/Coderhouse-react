@@ -27,7 +27,6 @@ function ItemListContainer() {
             });
     },[category]);
 
-
     if(items.length > 0){
         return(
             <div className="container mt-4">

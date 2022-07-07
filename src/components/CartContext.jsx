@@ -6,8 +6,24 @@ const Provider = context.Provider;
 
 const MyProvider = ({ children }) => {
     const [ cart, setCart ] = useState([]);
+    //cont [ contidadTotal, setContidadTotal ] = useState(0);
+    //const [ precioTotal, setPrecioTotal ] = useState(0);
 
     const addItem = (item) => {
+
+        //const copia = [...cart];
+        //
+        //const newProduct = {
+        //    ...product,
+        //    cantidad: cantidad
+        //}
+        //
+        //copia.push(newProduct);
+        //
+        //setCart(copia);
+        //setCantidadTotal(cantidadTotal + cantidad);
+        //serPrecioTotal(precioTotal + product.precio * cantidad);
+
         if(!isInCart(item.id)) {
             const aux = cart.slice();
             aux.push(item);
