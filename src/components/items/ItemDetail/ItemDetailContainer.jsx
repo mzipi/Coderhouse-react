@@ -10,15 +10,13 @@ function ItemDetailContainer() {
     const { id } = useParams();
 
     useEffect(()=>{
-        const collectionItems = collection(db, "items");
-        const docRef = doc(collectionItems, "NsW3FlVyc84OYHeqkSyk");
+        const docRef = doc(collection(db, "items"), id);
         const consulta = getDoc(docRef);
         consulta.then(i => {
            const product = i.data();
            setItem(product);
         });
         consulta.catch(e => console.log(e));
-
     },[]);
 
     if(item){

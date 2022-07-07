@@ -15,8 +15,8 @@ function NavBar() {
           <div className="navbar-nav">
             <Link to="/" className="nav-link active" aria-current="page">Inicio</Link>
             <Link to="/category/action" className="nav-link">Acción</Link>
-            <Link to="/category/adventure" className="nav-link">Aventuras</Link>
-            <Link to="/category/fps" className="nav-link">FPS</Link>
+            <Link to="/category/rpg" className="nav-link">RPG</Link>
+            <Link to="/category/puzzles" className="nav-link">Puzzles</Link>
           </div>
         </div>
         {
