@@ -55,6 +55,9 @@ function ItemListContainer() {
     if(items){
         return(
             <div className="container mt-4">
+                {
+                    category ? <h2>Categoría {category}</h2> : null 
+                }
                 <div className="row g-2">
                     <ItemList items={items}/>
                 </div>

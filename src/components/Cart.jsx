@@ -9,7 +9,7 @@ function Cart() {
     const { cart, totalPrice } = useContext(context);
     const [ idCompra, setIdCompra ] = useState('');
 
-    let total = 0;
+    const t = totalPrice()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ function Cart() {
             },
             items: cart,
             date: serverTimestamp(),
-            total: 120 //totalPrice
+            total: t
         }
         
         const consulta = addDoc(collectionOrders, orderData);
@@ -55,13 +55,12 @@ function Cart() {
                         </thead>
                         {
                             cart.map(item => {
-                                total += item.price * item.cantidad;
                                 return(
-                                    <tbody key={item.id}>
+                                    <tbody key={item.name}>
                                         <tr>
                                             <th scope="row">{item.cantidad}</th>
                                             <td>{item.name}</td>
-                                            <td>{item.price}</td>
+                                            <td>{item.price * item.cantidad}</td>
                                         </tr>
                                     </tbody>
                                 )
@@ -70,18 +69,18 @@ function Cart() {
                         <tbody>
                             <tr>
                                 <th scope="row" colSpan="2">Total</th>
-                                <td>{total}</td>
+                                <td>{t}</td>
                             </tr>
                         </tbody>
                     </table>
                     <form onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>Datos del comprador</legend>
-                            <label for="name">Nombre</label>
+                            <label htmlFor="name">Nombre</label>
                             <input id="name" name="name" type="text"></input>
-                            <label for="tel">Teléfono</label>
+                            <label htmlFor="tel">Teléfono</label>
                             <input type="tel"  id="tel" name="tel" pattern="[0-9]{9}"></input>
-                            <label for="email">E-mail</label>
+                            <label htmlFor="email">E-mail</label>
                             <input type="email" id="email" name="email"></input>
                             <input type="submit" className="btn btn-primary" value="Finalizar compra"></input>
                         </fieldset>

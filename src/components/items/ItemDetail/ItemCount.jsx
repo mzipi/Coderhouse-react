@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { context } from "../../CartContext";
 
-function ItemCount({ initial, stock, onAdd, setCantidad }) {
-    const [ counter, setCounter ] = useState(initial);
+function ItemCount({ initial, stock, onAdd, item }) {
+    const [ counter, setCounter ] = useState(1);
+    const { cantidad, setCantidad, addItem, addQuantity, delQuantity } = useContext(context);
 
     const sumar = () => {
         if (counter < stock) {
@@ -16,7 +18,9 @@ function ItemCount({ initial, stock, onAdd, setCantidad }) {
     };
 
     const finish = () => {
-        onAdd(counter);
+        // onAdd(counter);
+        // setCantidad(counter);
+        addItem(item, counter);
     }
 
     return(
