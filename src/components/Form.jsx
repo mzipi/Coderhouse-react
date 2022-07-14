@@ -1,20 +1,18 @@
 import { useContext, useState } from 'react';
 import { context } from './CartContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { db } from '../firebase';
 import { serverTimestamp, collection, addDoc } from 'firebase/firestore';
 
 function Form() {
     const { cart, totalPrice, cleanCart } = useContext(context);
     const [ idCompra, setIdCompra ] = useState('');
-    let navigate = useNavigate();
 
     const t = totalPrice();
 
-    async function handleSubmit(event) {
+    function handleSubmit(event) {
 
         event.preventDefault();
-
         
         if(event.target.elements.name.value || event.target.elements.email.value || event.target.elements.tel.value) {
             const collectionOrders = collection(db, 'orders');
@@ -39,7 +37,6 @@ function Form() {
             event.target.elements.name.value = '';
             event.target.elements.tel.value = '';
             event.target.elements.email.value = '';
-            //navigate(`/receipt/${idCompra}`, { replace: true });
             cleanCart();
         }
     };

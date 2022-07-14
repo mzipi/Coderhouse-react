@@ -47,6 +47,15 @@ const MyProvider = ({ children }) => {
         return x.reduce((a, b) => a + b, 0);
     }
 
+    const delItem = (name) => {
+        setCart(cart.filter(product => (product.name !== name)));
+    }
+
+    const cleanCart = () => {
+        const a = [];
+        setCart(a);
+    }
+
     // const totalPrice = (cart) => {
     //     return cart.price.reduce((prev, current) => prev += (current.precio * current.cantidad), 0)
     // }
@@ -68,14 +77,6 @@ const MyProvider = ({ children }) => {
     //     }
     // }
     
-    const delItem = (id) => {
-        setCart(cart.filter(currentproduct => (currentproduct.id !== Number(id))));
-    }
-
-    const cleanCart = () => {
-        const a = [];
-        setCart(a);
-    }
 
     const contexValue = {
         cart,

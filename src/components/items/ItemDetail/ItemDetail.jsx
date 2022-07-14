@@ -1,6 +1,6 @@
 import ItemCount from "./ItemCount";
 
-function ItemDetail({item}) {
+function ItemDetail({item, setItem}) {
 
     return(
         <>
@@ -18,7 +18,8 @@ function ItemDetail({item}) {
                 <ItemCount 
                     initial={1} 
                     stock={item.stock}
-                    item={item}>
+                    item={item}
+                    setItem={setItem}>
                 </ItemCount>    
             </div>
         </>

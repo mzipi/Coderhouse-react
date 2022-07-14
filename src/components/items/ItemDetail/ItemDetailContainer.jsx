@@ -23,7 +23,7 @@ function ItemDetailContainer() {
         return(
             <div className="container mt-4">
                 <div className="row g-2">
-                    <ItemDetail item={item} />
+                    <ItemDetail item={item} setItem={setItem}/>
                 </div>
             </div>
         );

@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
 
-    const { cart } = useContext(context);
+    const { cart, delItem } = useContext(context);
+
+    const quitar = ( name ) => () => {
+        delItem(name)
+    }
 
     if(cart["length"] === 0){
         return(
@@ -34,7 +38,7 @@ function Cart() {
                                         <th scope="row">{item.cantidad}</th>
                                         <td>{item.name}</td>
                                         <td>{item.price * item.cantidad}</td>
-                                        <td><button className='btn btn-close'></button></td>
+                                        <td><button className='btn btn-close' onClick={quitar(item.name)}></button></td>
                                     </tr>
                                 </tbody>
                             )

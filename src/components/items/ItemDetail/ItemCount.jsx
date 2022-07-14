@@ -2,19 +2,25 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { context } from "../../CartContext";
 
-function ItemCount({ initial, item, stock }) {
+function ItemCount({ initial, item, setItem }) {
     const [ counter, setCounter ] = useState(initial);
     const { addItem, isInCart } = useContext(context);
 
     const sumar = () => {
-        if (counter < stock) {
+        if (item.stock > 0) {
             setCounter(counter + 1);
+            const aux = { ...item};
+            aux.stock = item.stock - 1;
+            setItem(aux);
         };
     };
 
     const restar = () => {
         if(counter > 0) {
             setCounter(counter - 1);
+            const aux = { ...item};
+            aux.stock = item.stock + 1;
+            setItem(aux);
         };
     };
 
