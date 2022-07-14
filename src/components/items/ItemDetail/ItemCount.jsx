@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { context } from "../../CartContext";
 
-function ItemCount({ initial, stock, onAdd, item }) {
-    const [ counter, setCounter ] = useState(1);
-    const { cantidad, setCantidad, addItem, addQuantity, delQuantity } = useContext(context);
+function ItemCount({ initial, item, stock }) {
+    const [ counter, setCounter ] = useState(initial);
+    const { addItem, isInCart } = useContext(context);
 
     const sumar = () => {
         if (counter < stock) {
@@ -18,22 +19,27 @@ function ItemCount({ initial, stock, onAdd, item }) {
     };
 
     const finish = () => {
-        // onAdd(counter);
-        // setCantidad(counter);
         addItem(item, counter);
     }
-
     return(
         <div>
-            <div className="d-flex m-3">
-                <button type="button" className="btn btn-primary" onClick={restar}>-</button>
-                <p className="px-5">{counter}</p>
-                <button type="button" className="btn btn-primary" onClick={sumar}>+</button>
-            </div>
-            <div>
-                <button type="button" className="btn btn-primary d-block m-3" onClick={finish}>Agregar al carro</button>
+            <div className="container">
+                <div className="row justify-content-center align-items-center text-center">
+                    <button type="button" className="btn btn-primary col-1" onClick={restar}>-</button>
+                    <div className="col-1">{counter}</div>
+                    <button type="button" className="btn btn-primary col-1" onClick={sumar}>+</button>
+                    {
+                        isInCart(item.name) 
+                        ? 
+                        <Link to={"/cart"} className="btn btn-primary col ms-3">Ver carrito</Link> 
+                        :
+                        <button type="button" className="btn btn-primary col ms-3" onClick={finish}>Agregar al carro</button>
+                    } 
+                </div>
+                <div className="row mt-3">
+                </div>
             </div>
         </div>
-    );
+    )
 };
 export default ItemCount;

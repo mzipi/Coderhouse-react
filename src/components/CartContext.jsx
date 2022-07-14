@@ -7,48 +7,15 @@ const Provider = context.Provider;
 const MyProvider = ({ children }) => {
 
     const [ cart, setCart ] = useState([]);
-    // const [ cantidadTotal, setCantidadTotal ] = useState(0);
-    // const [ precioTotal, setPrecioTotal ] = useState(0);
-    // const [ cantidad, setCantidad ] = useState();
 
     const addItem = (item, counter) => {
-
-        // const copia = [...cart];
-        
-        // const newProduct = {
-        //     ...product,
-        //     cantidad: cantidad
-        // }
-            
-        // copia.push(newProduct);
-            
-        // setCart(copia);
-        // setCantidadTotal(cantidadTotal + cantidad);
-        // serPrecioTotal(precioTotal + product.precio * cantidad);
-            
-            
-        // setCantidadTotal(cantidadTotal + cantidad);
-        // setPrecioTotal(precioTotal + item.price * cantidad);
-            
-        // if(!isInCart(item.id)) {
-        //     const aux = cart.slice();
-        //     aux.push(item);
-        //     setCart(aux);
-        // } else {
-        //     addQuantity(item.id)
-        // }
-
         if(isInCart(item.name) === false) {
-
             const auxCart = [...cart];
-            
             const newProduct = {
                 ...item,
                 cantidad: counter
             }
-    
             auxCart.push(newProduct);
-            
             return setCart(auxCart);
         } else {
             addQuantity(item.name, counter)
@@ -101,17 +68,23 @@ const MyProvider = ({ children }) => {
     //     }
     // }
     
-    // const delItem = (id) => {
-    //     setCart(cart.filter(currentuct => (currentuct.id !== Number(id))));
-    // }
+    const delItem = (id) => {
+        setCart(cart.filter(currentproduct => (currentproduct.id !== Number(id))));
+    }
 
-
+    const cleanCart = () => {
+        const a = [];
+        setCart(a);
+    }
 
     const contexValue = {
         cart,
         addItem,
         totalQuantity,
-        totalPrice
+        totalPrice, 
+        isInCart,
+        delItem,
+        cleanCart
     }
 
     return(
