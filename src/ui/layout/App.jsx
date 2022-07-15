@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
-import NavBar from "./main/NavBar";
-import Main from "./main/Main";
-import Footer from "./main/Footer";
-import MyProvider from '../CartContext';
+import NavBar from "./NavBar";
+import Main from "./Main";
+import Footer from "./Footer";
+import MyProvider from '../../api/CartContext';
 
 function App() {
     return(

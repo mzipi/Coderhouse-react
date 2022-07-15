@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { db } from '../firebase';
+import { db } from '../../api/firebase';
 import { getDoc, collection, doc } from "firebase/firestore";
 
 function Receipt() {
@@ -37,7 +37,7 @@ function Receipt() {
             }
             <ul>
             {
-                game.map(i => <li>{i.name} x{i.cantidad}</li>)
+                game.map(i => <li key={i.name}>{i.name} x{i.cantidad}</li>)
             }
             </ul>
             <p>Total de la compra: ${item.total}</p>

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { context } from "../../CartContext";
+import { context } from "../../api/CartContext";
 
 function ItemCount({ initial, item, setItem }) {
     const [ counter, setCounter ] = useState(initial);
@@ -16,7 +16,7 @@ function ItemCount({ initial, item, setItem }) {
     };
 
     const restar = () => {
-        if(counter > 0) {
+        if(counter > 1) {
             setCounter(counter - 1);
             const aux = { ...item};
             aux.stock = item.stock + 1;

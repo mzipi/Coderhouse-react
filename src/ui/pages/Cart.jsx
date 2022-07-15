@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { context } from './CartContext';
 import { Link } from 'react-router-dom';
+import { context } from '../../api/CartContext';
 
 function Cart() {
 

@@ -1,9 +1,9 @@
-import ItemListContainer from "../../items/ItemList/ItemListContainer";
-import ItemDetailContainer from "../../items/ItemDetail/ItemDetailContainer";
 import { Route, Routes } from "react-router-dom";
-import Cart from "../../Cart";
-import Receipt from "../../Receipt";
-import Form from "../../Form";
+import ItemListContainer from "../pages/ItemListContainer";
+import ItemDetailContainer from "../pages/ItemDetailContainer";
+import Cart from "../pages/Cart";
+import Receipt from "../pages/Receipt";
+import Form from "../pages/Form";
 
 function Main() {
     return(

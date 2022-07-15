@@ -56,28 +56,6 @@ const MyProvider = ({ children }) => {
         setCart(a);
     }
 
-    // const totalPrice = (cart) => {
-    //     return cart.price.reduce((prev, current) => prev += (current.precio * current.cantidad), 0)
-    // }
-
-    // const totalQuantity = () => {
-    //     return cart.reduce((prev, current) => prev += current.cantidad, 0)
-    // }
-
-    // const delQuantity = (id) => {
-    //     const index = cart.findIndex((item) => item.id === Number(id));
-    //     const item = cart[index];
-    //     if(item.cantidad === 1) {
-    //         delItem(id)
-    //     } else {
-    //         const newQuantity = item.cantidad - 1;
-    //         const aux = cart.slice();
-    //         aux[index].cantidad = newQuantity;
-    //         setCart(aux);
-    //     }
-    // }
-    
-
     const contexValue = {
         cart,
         addItem,
