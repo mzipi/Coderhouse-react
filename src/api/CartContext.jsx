@@ -63,6 +63,7 @@ const MyProvider = ({ children }) => {
         totalPrice, 
         isInCart,
         delItem,
+        addQuantity,
         cleanCart
     }
 

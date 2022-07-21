@@ -9,7 +9,7 @@ function ItemCount({ initial, item, setItem }) {
     const sumar = () => {
         if (item.stock > 0) {
             setCounter(counter + 1);
-            const aux = { ...item};
+            const aux = { ...item };
             aux.stock = item.stock - 1;
             setItem(aux);
         };
@@ -27,6 +27,7 @@ function ItemCount({ initial, item, setItem }) {
     const finish = () => {
         addItem(item, counter);
     }
+
     return(
         <div>
             <div className="container">

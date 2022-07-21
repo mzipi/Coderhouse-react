@@ -51,7 +51,7 @@ function Cart() {
                         </tr>
                     </tbody>
                 </table>
-                <Link to={"/form"} className="btn btn-primary">Continuar la compra</Link>
+                <Link to={"/form"} className="btn btn-primary">Terminar la compra</Link>
             </div>
         )
     }
