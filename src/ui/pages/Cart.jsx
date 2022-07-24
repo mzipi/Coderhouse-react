@@ -35,9 +35,9 @@ function Cart() {
                             return(
                                 <tbody key={item.name}>
                                     <tr>
-                                        <th scope="row">{item.cantidad}</th>
+                                        <th scope="row">{item.quantity}</th>
                                         <td>{item.name}</td>
-                                        <td>{item.price * item.cantidad}</td>
+                                        <td>{item.price * item.quantity}</td>
                                         <td><button className='btn btn-close' onClick={quitar(item.name)}></button></td>
                                     </tr>
                                 </tbody>
