@@ -38,26 +38,26 @@ const MyProvider = ({ children }) => {
         setCart(auxCart);
     }
 
-    // const downQty = (item) => {
-    //     const i = cart.findIndex((cartItem) => cartItem.name === item.name);
-    //     const auxCart = [...cart];
-    //     auxCart[i].quantity--;
-    //     auxCart[i].stock++;
-    //     setCart(auxCart);
-    // }
-
     const downQty = (item) => {
         const i = cart.findIndex((cartItem) => cartItem.name === item.name);
-        if(cart[i].quantity > 0) {
-            const auxCart = [...cart];
-            auxCart[i].quantity--;
-            auxCart[i].stock++;
-            setCart(auxCart);
-        }
-        if(cart[i].quantity < 1) {
-            delItem(cart[i]);
-        }
+        const auxCart = [...cart];
+        auxCart[i].quantity--;
+        auxCart[i].stock++;
+        setCart(auxCart);
     }
+
+    // const downQty = (item) => {
+    //     const i = cart.findIndex((cartItem) => cartItem.name === item.name);
+    //     if(cart[i].quantity > 0) {
+    //         const auxCart = [...cart];
+    //         auxCart[i].quantity--;
+    //         auxCart[i].stock++;
+    //         setCart(auxCart);
+    //     }
+    //     if(cart[i].quantity < 1) {
+    //         delItem(cart[i]);
+    //     }
+    // }
 
 
     const totalQty = () => {

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { context } from "../../api/CartContext";
 
-function ItemCount({ initial, item, setItem }) {
-    const { addItem, delItem, inCart, cart, upQty, downQty } = useContext(context);
+function ItemCount({item, setItem }) {
+    const { addItem, inCart, cart, upQty, downQty } = useContext(context);
     const [ show, setShow ] = useState();
 
     const up = () => {

@@ -26,8 +26,6 @@ function ItemDetail({item, setItem}) {
                     <p className="col text-center fs-3">${item.price}</p>
                 </div>
                 <ItemCount 
-                    initial={1} 
-                    stock={item.stock}
                     item={item}
                     setItem={setItem}>
                 </ItemCount>    
