@@ -25,48 +25,29 @@ function ItemCount({item, setItem }) {
     };
 
     const down = () => {
-        const auxItem = {...item};
-        if(item.quantity > 0) {
-            if(inCart(item)) {
+        const n = cart.find((cartItem) => cartItem.name === item.name);
+        if(inCart(item)) {
+            if(n.quantity > 1) {
                 downQty(item);
-                auxItem.quantity--;
-            }
+            } else if (n.quantity === 1) {
+                delItem(item);
+                n.quantity--;
+                n.stock++;
+            } 
+        }
+        if(item.quantity > 0) {
+            const auxItem = {...item};
             auxItem.quantity--;
             auxItem.stock++;
             setItem(auxItem);
-        } 
-        if(item.quantity === 0) {
+        }
+        if(item.quantity === 0 && !inCart(item)) {
             setShow(<p className="text-danger mt-3 mb-0">No se pueden descontar más items</p>);
             setTimeout(() => {
                 setShow(null);
             }, 3000);
         }
     }
-
-    // const down = () => {
-    //     const n = cart.find((cartItem) => cartItem.name === item.name);
-    //     if(inCart(item)) {
-    //         if(n.quantity > 1) {
-    //             downQty(item);
-    //         } else if (n.quantity === 1) {
-    //             delItem(item);
-    //             n.quantity--;
-    //             n.stock++;
-    //         } 
-    //     }
-    //     if(item.quantity > 0) {
-    //         const auxItem = {...item};
-    //         auxItem.quantity--;
-    //         auxItem.stock++;
-    //         setItem(auxItem);
-    //     }
-    //     if(item.quantity === 0 && !inCart(item)) {
-    //         setShow(<p className="text-danger mt-3 mb-0">No se pueden descontar más items</p>);
-    //         setTimeout(() => {
-    //             setShow(null);
-    //         }, 3000);
-    //     }
-    // }
     
     const finish = () => {
         if(item.quantity > 0){
