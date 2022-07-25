@@ -7,7 +7,7 @@ function NavBar() {
 
 	const { cart } = useContext(context);
 
-	const clase = isActive => isActive.isActive === true ? 'nav-link active text-primary' : 'nav-link';
+	const clase = isActive => isActive.isActive === true ? 'nav-link active text-primary' : 'nav-link ';
 
 	return (
 		<nav className="navbar navbar-expand-lg bg-light">
