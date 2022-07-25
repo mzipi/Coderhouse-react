@@ -82,4 +82,3 @@ Bootstrap icons unicamente lo utilizo para mostrar un ícono de carga en algunas
 
 ## Video
 [![Watch the video](https://i.imgur.com/4reLU8G.png)](https://drive.google.com/file/d/1zfmCVv9OFTiAUEyr7HbFXqKYXqcjLTlL/view?usp=sharing)
-

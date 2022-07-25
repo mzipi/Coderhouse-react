@@ -36,7 +36,7 @@ function ItemListContainer() {
 
     if(items){
         return(
-            <div className="container mt-4">
+            <div className="container mx-auto mt-4">
                 {
                     category ? <h2>Categoría {category}</h2> : null 
                 }

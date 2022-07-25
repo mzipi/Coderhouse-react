@@ -4,7 +4,7 @@ function ItemList({ items }) {
 
     return(
         items.map(item => 
-            <div className="col-5" key={item.id}>
+            <div className="col-4" key={item.id}>
                 <Item item={item} />
             </div>
         )

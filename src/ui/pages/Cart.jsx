@@ -37,7 +37,7 @@ function Cart() {
                                     <tr>
                                         <td>{item.quantity}</td>
                                         <td><Link to={`/item/${item.id}`} className="nav-link text-primary">{item.name}</Link></td>
-                                        <td>{item.price * item.quantity}</td>
+                                        <td>${item.price * item.quantity}</td>
                                         <td><button className='btn btn-close' onClick={quitar(item)}></button></td>
                                     </tr>
                                 </tbody>
@@ -47,7 +47,7 @@ function Cart() {
                     <tbody>
                         <tr>
                             <th scope="row" colSpan="2">Total</th>
-                            <td colSpan="2">{totalPrice()}</td>
+                            <td colSpan="2">${totalPrice()}</td>
                         </tr>
                     </tbody>
                 </table>
