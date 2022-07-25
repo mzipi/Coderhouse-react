@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import NavBar from "./NavBar";
+import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import MyProvider from '../../api/CartContext';
@@ -9,7 +9,7 @@ function App() {
         <>
             <BrowserRouter>
                 <MyProvider>
-                    <NavBar />
+                    <Header />
                     <Main />
                 </MyProvider>
                 <Footer />

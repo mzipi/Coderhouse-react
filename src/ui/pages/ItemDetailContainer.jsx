@@ -8,9 +8,9 @@ import { context } from "../../api/CartContext";
 function ItemDetailContainer() {
 
     const [item, setItem] = useState({});
-    const { id } = useParams();
     const { itemQuantity } = useContext(context);
-
+    const { id } = useParams();
+    
     useEffect(()=>{
         const docRef = doc(collection(db, "items"), id);
         const consulta = getDoc(docRef);
@@ -20,7 +20,7 @@ function ItemDetailContainer() {
             const newProduct = itemQuantity(product);
             setItem(newProduct);
         });
-        consulta.catch(e => console.log(e));
+        consulta.catch(e => alert(e));
     },[id]);
 
     if(item){

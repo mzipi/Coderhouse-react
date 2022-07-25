@@ -12,42 +12,24 @@ function ItemListContainer() {
     useEffect(()=>{
 
         if(category) {
-            categoria()
-        } else {
-            inicio()
-        }
-
-        function inicio() {
-            const querySnapshot = getDocs(collection(db, "items"));
-            querySnapshot
-                .then((resultado) => {
-                    const productos_mapeados = resultado.docs.map(referencia => {                   
-                        const aux = referencia.data();
-                        aux.id = referencia.id;
-                        return aux;
-                    })
-                    setItems(productos_mapeados);
-                })
-                .catch((error) => {
-                    console.log(error)
-                });
-        }
-
-        function categoria() {
             const q = query(collection(db, "items"), where("category", "==", category));
             const querySnapshot = getDocs(q);
-            querySnapshot
-                .then((resultado) => {
-                    const productos_mapeados = resultado.docs.map(referencia => {                   
-                        const aux = referencia.data();
-                        aux.id = referencia.id;
-                        return aux;
-                    })
-                    setItems(productos_mapeados);
+            queryFunction(querySnapshot);
+        } else {
+            const querySnapshot = getDocs(collection(db, "items"));
+            queryFunction(querySnapshot);
+        }
+
+        function queryFunction(querySnapshot) {
+            querySnapshot.then((resultado) => {
+                const productos_mapeados = resultado.docs.map(referencia => {                   
+                    const aux = referencia.data();
+                    aux.id = referencia.id;
+                    return aux;
                 })
-                .catch((error) => {
-                    console.log(error)
-                });
+                setItems(productos_mapeados);
+            })
+            querySnapshot.catch((error) => alert(error));
         }
 
     },[category]);

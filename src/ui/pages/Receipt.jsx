@@ -18,7 +18,7 @@ function Receipt() {
             setItem(product);
             setReceipt(receiptId);
         });
-        consulta.catch(e => console.log(e));
+        consulta.catch(e => alert(e));
     }, [id]);
 
     const buyer = {...item.buyer};

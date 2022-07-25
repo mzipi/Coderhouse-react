@@ -4,7 +4,7 @@
 3. [Requerimientos](#requerimientos)
 4. [Instalación](#instalación)
 5. [Ejecución](#ejecución)
-6. [Capturas](#capturas)
+6. [Video](#video)
 7. [Implementaciones](#implementaciones)
 
 ## Introducción
@@ -54,7 +54,9 @@ La app le devolerá una factura con los datos de la compra.
     * localhost:3000 [enlace](http://localhost:3000)
     * 127.0.0.1:3000 [enlace](http://127.0.0.1:3000)
 
-## Capturas
-[captura](https://google.com)
+## Video
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
 
 ## Implementaciones

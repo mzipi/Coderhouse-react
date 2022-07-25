@@ -48,7 +48,7 @@ function Form() {
                 consulta
                     .then(res => setIdCompra(res.id))
                     .then(() => setShow(''))
-                    .catch(e => console.log(e));
+                    .catch(e => alert(e));
                 
                     
                     cleanCart();
