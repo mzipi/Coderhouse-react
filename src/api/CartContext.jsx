@@ -7,7 +7,6 @@ const Provider = context.Provider;
 const MyProvider = ({ children }) => {
 
     const [ cart, setCart ] = useState([]);
-    const [ counter, setCounter ] = useState(1);
 
     const addItem = (item) => {
         const auxCart = [...cart];
@@ -15,46 +14,63 @@ const MyProvider = ({ children }) => {
         setCart(auxCart);
     }
 
+    const delItem = ({name}) => {
+        setCart(cart.filter(product => (product.name !== name)));
+    }
+    
     const itemQuantity = (item) => {
         const auxItem = {
             ...item,
-            quantity: counter
+            quantity: 0
         }
         return auxItem;
     }
     
-    const isInCart = ({name}) => {
+    const inCart = ({name}) => {
         return cart.some((current) => current.name === name);
     }
 
-    const upQuantity = (item) => {
-        const auxCart = cart.findIndex((cartItem) => cartItem.name === item.name);
-        cart[auxCart].quantity = item.quantity + 1;
-        cart[auxCart].stock = item.stock - 1;
+    const upQty = (item) => {
+        const i = cart.findIndex((cartItem) => cartItem.name === item.name);
+        const auxCart = [...cart];
+        auxCart[i].quantity++;
+        auxCart[i].stock--;
+        setCart(auxCart);
     }
 
-    const downQuantity = (item) => {
-        const auxCart = cart.findIndex((cartItem) => cartItem.name === item.name);
-        cart[auxCart].quantity = item.quantity - 1;
-        cart[auxCart].stock = item.stock + 1;
+    // const downQty = (item) => {
+    //     const i = cart.findIndex((cartItem) => cartItem.name === item.name);
+    //     const auxCart = [...cart];
+    //     auxCart[i].quantity--;
+    //     auxCart[i].stock++;
+    //     setCart(auxCart);
+    // }
+
+    const downQty = (item) => {
+        const i = cart.findIndex((cartItem) => cartItem.name === item.name);
+        if(cart[i].quantity > 0) {
+            const auxCart = [...cart];
+            auxCart[i].quantity--;
+            auxCart[i].stock++;
+            setCart(auxCart);
+        }
+        if(cart[i].quantity < 1) {
+            delItem(cart[i]);
+        }
     }
 
 
-    const totalQuantity = () => {
-        const x = cart.map(item => item.quantity);
-        return x.reduce((a, b) => a + b, 0);
+    const totalQty = () => {
+        const allQtys = cart.map(item => item.quantity);
+        const total = allQtys.reduce((prev, current) => prev + current, 0);
+        return total;
     }
 
     const totalPrice = () => {
-        const x = cart.map(item => {
-            return item.price * item.cantidad;
-        });
-        return x.reduce((a, b) => a + b, 0);
+        const itemPrice = cart.map(item => item.price * item.quantity);
+        return itemPrice.reduce((prev, current) => prev + current, 0);
     }
 
-    const delItem = ({name}) => {
-        setCart(cart.filter(product => (product.name !== name)));
-    }
 
     const cleanCart = () => {
         const a = [];
@@ -65,16 +81,14 @@ const MyProvider = ({ children }) => {
         cart,
         setCart,
         addItem,
-        totalQuantity,
+        totalQty,
         totalPrice, 
-        isInCart,
+        inCart,
         delItem,
         cleanCart,
-        counter,
-        setCounter,
         itemQuantity,
-        upQuantity,
-        downQuantity
+        upQty,
+        downQty
     }
 
     return(
