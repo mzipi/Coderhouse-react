@@ -1,11 +1,11 @@
 # INDICE
 1. [Introducción](#introducción)
 2. [Tecnologías](#tecnologías)
-3. [Requerimientos](#requerimientos)
-4. [Instalación](#instalación)
-5. [Ejecución](#ejecución)
-6. [Video](#video)
-7. [Implementaciones](#implementaciones)
+3. [Implementaciones](#implementaciones)
+4. [Requerimientos](#requerimientos)
+5. [Instalación](#instalación)
+6. [Ejecución](#ejecución)
+7. [Video](#video)
 
 ## Introducción
 
@@ -18,12 +18,37 @@ Para finalizar la compra dirijase al carrito e ingrese sus datos personales.
 La app le devolerá una factura con los datos de la compra.
 
 ## Tecnologías
+* create-react-app [enlace](https://www.npmjs.com/package/create-react-app)
 * react v18.1.0 [enlace](https://www.npmjs.com/package/react)
 * react-dom v18.1.0 [enlace](https://www.npmjs.com/package/react-dom)
 * react-router-dom v6.3.0 [enlace](https://www.npmjs.com/package/react-router-dom)
 * firebase v9.8.4 [enlace](https://www.npmjs.com/package/firebase)
 * bootstrap v5.2.0-beta1 [enlace](https://www.npmjs.com/package/bootstrap)
 * bootstrap-icons v1.8.3 [enlace](https://www.npmjs.com/package/bootstrap-icons)
+
+## Implementaciones
+
+### React y React dom
+Utilice React y React-dom para hacer una aplicación que cargara una sola vez y el usuario pudiera navegar rápido por sus secciones.  
+De está librería aproveche **useState** para guardar datos y cambiar dinamicamente pequeñas partes del contenido.   
+También use **useEffect** para poder cargar los datos de los productos luego de haberse renderizado el componente.  
+**useContext** es el que centraliza todos los datos de la compra.
+
+### React router dom
+Esta librería me permite agregar navegación entre los componentes.   
+Con **useParams** obtengo parte de la URL en la que estoy ubicado y la aprovecho para mostrar una cosa u otra.
+
+### Firestore
+En firestore cree una colección que contiene documentos por cada juego. Y otra colección que contiene los documentos como ordenes de compra.  
+Utilizo **getDocs** y **collection** para obtener todos los documentos de la colección de juegos.  
+**query** y **where** para filtrar los documentos por el genero de juego.
+Utilizo **getDoc**, **doc** y **collection** para obtener un juego en concreto.
+
+### Bootstrap
+Bootstrap lo utilizo para maquetar facilmente y centrarme en la lógica de la aplicación.
+
+### Bootstrap icons
+Bootstrap icons unicamente lo utilizo para mostrar un ícono de carga en algunas partes, otro de copyrirght y el carrito.
 
 ## Requerimientos
 * Un terminal
@@ -37,6 +62,7 @@ La app le devolerá una factura con los datos de la compra.
 * NPM (se instala junto a node)
     * Para comprobar si tiene npm instalado:
         * `npm -v`
+
 ## Instalación
 1. Abrir la terminal
 2. Dirigirse al directorio donde desea descargar la aplicación
@@ -55,10 +81,5 @@ La app le devolerá una factura con los datos de la compra.
     * 127.0.0.1:3000 [enlace](http://127.0.0.1:3000)
 
 ## Video
-<!-- blank line -->
-<figure class="video_container">
-    <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-<!-- blank line -->
+[![Watch the video](https://i.imgur.com/4reLU8G.png)](https://drive.google.com/file/d/1zfmCVv9OFTiAUEyr7HbFXqKYXqcjLTlL/view?usp=sharing)
 
-## Implementaciones

@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { context } from "../../api/CartContext";
 
 function ItemCount({item, setItem }) {
-    const { addItem, inCart, cart, upQty, downQty } = useContext(context);
+    const { addItem, inCart, cart, upQty, downQty, delItem } = useContext(context);
     const [ show, setShow ] = useState();
 
     const up = () => {
@@ -15,31 +15,58 @@ function ItemCount({item, setItem }) {
             auxItem.quantity++;
             auxItem.stock--;
             setItem(auxItem);
-        } else {
+        } 
+        if(item.stock === 0) {
             setShow(<p className="text-danger mt-3 mb-0">No hay suficiente stock</p>);
             setTimeout(() => {
                 setShow(null);
             }, 3000);
         }
     };
-    
+
     const down = () => {
-        if(inCart(item)){
-            downQty(item);
-        } 
-        if (item.quantity > 0) {
-            const auxItem = {...item};
+        const auxItem = {...item};
+        if(item.quantity > 0) {
+            if(inCart(item)) {
+                downQty(item);
+                auxItem.quantity--;
+            }
             auxItem.quantity--;
             auxItem.stock++;
             setItem(auxItem);
-        }
-        if(item.quantity < 1){
+        } 
+        if(item.quantity === 0) {
             setShow(<p className="text-danger mt-3 mb-0">No se pueden descontar más items</p>);
             setTimeout(() => {
                 setShow(null);
             }, 3000);
         }
-    };
+    }
+
+    // const down = () => {
+    //     const n = cart.find((cartItem) => cartItem.name === item.name);
+    //     if(inCart(item)) {
+    //         if(n.quantity > 1) {
+    //             downQty(item);
+    //         } else if (n.quantity === 1) {
+    //             delItem(item);
+    //             n.quantity--;
+    //             n.stock++;
+    //         } 
+    //     }
+    //     if(item.quantity > 0) {
+    //         const auxItem = {...item};
+    //         auxItem.quantity--;
+    //         auxItem.stock++;
+    //         setItem(auxItem);
+    //     }
+    //     if(item.quantity === 0 && !inCart(item)) {
+    //         setShow(<p className="text-danger mt-3 mb-0">No se pueden descontar más items</p>);
+    //         setTimeout(() => {
+    //             setShow(null);
+    //         }, 3000);
+    //     }
+    // }
     
     const finish = () => {
         if(item.quantity > 0){
