@@ -1,13 +1,13 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { context } from '../../api/CartContext';
 
 function Cart() {
 
-    const { cart, delItem } = useContext(context);
+    const { cart, delItem, totalPrice } = useContext(context);
 
-    const quitar = ( name ) => () => {
-        delItem(name)
+    const quitar = (item) => () => {
+        delItem(item)
     }
 
     if(cart["length"] === 0){
@@ -21,7 +21,7 @@ function Cart() {
         return(
             <div>
                 <h1>Carrito</h1>
-                <table className="table">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Cantidad</th>
@@ -35,10 +35,10 @@ function Cart() {
                             return(
                                 <tbody key={item.name}>
                                     <tr>
-                                        <th scope="row">{item.quantity}</th>
-                                        <td>{item.name}</td>
+                                        <td>{item.quantity}</td>
+                                        <td><Link to={`/item/${item.id}`} className="nav-link text-primary">{item.name}</Link></td>
                                         <td>{item.price * item.quantity}</td>
-                                        <td><button className='btn btn-close' onClick={quitar(item.name)}></button></td>
+                                        <td><button className='btn btn-close' onClick={quitar(item)}></button></td>
                                     </tr>
                                 </tbody>
                             )
@@ -47,7 +47,7 @@ function Cart() {
                     <tbody>
                         <tr>
                             <th scope="row" colSpan="2">Total</th>
-                            <td>{}</td>
+                            <td colSpan="2">{totalPrice()}</td>
                         </tr>
                     </tbody>
                 </table>

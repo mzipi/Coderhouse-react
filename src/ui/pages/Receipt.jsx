@@ -37,7 +37,7 @@ function Receipt() {
             }
             <ul>
             {
-                game.map(i => <li key={i.name}>{i.name} x{i.cantidad}</li>)
+                game.map(i => <li key={i.name}>{i.name} x{i.quantity}</li>)
             }
             </ul>
             <p>Total de la compra: ${item.total}</p>

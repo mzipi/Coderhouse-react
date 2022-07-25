@@ -1,6 +1,10 @@
 import ItemCount from "./ItemCount";
+import { useContext } from "react";
+import { context } from "../../api/CartContext";
 
 function ItemDetail({item, setItem}) {
+
+    const { cart, inCart } = useContext(context);
 
     return(
         <>
@@ -12,7 +16,13 @@ function ItemDetail({item, setItem}) {
                     <p className="card-text">{item.description}</p>
                 </div>
                 <div className="row align-items-center">
+                {
+                    inCart(item)
+                    ?
+                    <p className="col-3 text-center">Stock: {cart.find(itemCart => itemCart.name === item.name).stock}</p>
+                    :
                     <p className="col-3 text-center">Stock: {item.stock}</p>
+                }
                     <p className="col text-center fs-3">${item.price}</p>
                 </div>
                 <ItemCount 

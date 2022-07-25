@@ -1,5 +1,5 @@
 import CartWidget from '../CartWidget';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { context } from '../../api/CartContext';
 
@@ -10,13 +10,13 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand border-end pe-4">Zipi gamestore</Link>
+        <NavLink to="/" className="navbar-brand border-end pe-4">Zipi gamestore</NavLink>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link to="/" className="nav-link active" aria-current="page">Inicio</Link>
-            <Link to="/category/action" className="nav-link">Acción</Link>
-            <Link to="/category/rpg" className="nav-link">RPG</Link>
-            <Link to="/category/puzzles" className="nav-link">Puzzles</Link>
+            <NavLink to="/" className="nav-link">Inicio</NavLink>
+            <NavLink to="/category/action" className="nav-link">Acción</NavLink>
+            <NavLink to="/category/rpg" className="nav-link">RPG</NavLink>
+            <NavLink to="/category/puzzles" className="nav-link">Puzzles</NavLink>
           </div>
         </div>
         {

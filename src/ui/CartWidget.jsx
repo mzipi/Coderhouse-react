@@ -4,15 +4,16 @@ import { context } from '../api/CartContext';
 
 function CartWidget() {
 
-    const { totalQuantity } = useContext(context);  
-    const num = totalQuantity();
+    const { totalQty } = useContext(context);  
 
     return(
         <Link to="/cart">
             <div className="container btn btn-primary">
                 <div className="row">
                     <div className="col py-0 px-1 m-auto">
-                        <p className="m-0">{num}</p>
+                        <p className="m-0">
+                            {totalQty()}
+                        </p>
                     </div>
                     <div className="col py-0 ps-0 pe-1 mb-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">

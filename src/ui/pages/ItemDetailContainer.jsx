@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-// import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../api/firebase";
 import { getDoc, collection, doc } from "firebase/firestore";
@@ -11,24 +10,18 @@ function ItemDetailContainer() {
     const [item, setItem] = useState({});
     const { id } = useParams();
     const { itemQuantity } = useContext(context);
-    // const [ counter, setCounter ] = useState(1);
 
     useEffect(()=>{
         const docRef = doc(collection(db, "items"), id);
         const consulta = getDoc(docRef);
         consulta.then(i => {
-        //    const product = {
-        //         ...i.data(),
-        //         quantity: counter
-        //     };
             const product = i.data();
+            product.id = i.id;
             const newProduct = itemQuantity(product);
             setItem(newProduct);
         });
         consulta.catch(e => console.log(e));
     },[id]);
-
-    console.log("El item contiene: ", item);
 
     if(item){
         return(
@@ -40,7 +33,9 @@ function ItemDetailContainer() {
         );
     } else {
         return(
-            <p>Cargando detalles...</p>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         );
     }
 };

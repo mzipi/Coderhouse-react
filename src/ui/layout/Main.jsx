@@ -8,7 +8,7 @@ import Form from "../pages/Form";
 function Main() {
     return(
         <>
-            <main className="p-5">
+            <main className="p-5" style={{minHeight: "87vh"}}>
                 <Routes>
                     <Route path="/" element={<ItemListContainer />}></Route>
                     <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
