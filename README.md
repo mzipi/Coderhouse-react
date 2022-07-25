@@ -55,8 +55,10 @@ La app le devolerá una factura con los datos de la compra.
     * 127.0.0.1:3000 [enlace](http://127.0.0.1:3000)
 
 ## Video
+<!-- blank line -->
 <figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
+    <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
+<!-- blank line -->
 
 ## Implementaciones
